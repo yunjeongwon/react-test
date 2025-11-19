@@ -10,4 +10,7 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    port: process.env.PORT ? +process.env.PORT : 5173,
+  }
 })
