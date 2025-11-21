@@ -38,7 +38,7 @@ function App() {
       formData.append("files", file); // Nest multer field name
     });
   
-    const res = await fetch("http://localhost:3000/upload", {
+    const res = await fetch("http://localhost:3000/files", {
       method: "POST",
       body: formData,
     });
