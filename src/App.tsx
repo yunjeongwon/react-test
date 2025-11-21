@@ -9,7 +9,7 @@ interface IFile {
 }
 
 function App() {
-  const apiUrl = import.meta.env.API_URL ?? 'http://localhost:3000'
+  const apiUrl = import.meta.env.VITE_API_URL ?? 'http://localhost:3000'
   const [images, setImages] = useState<IFile[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<{ name: string; url?: string; text?: string }[]>([]);

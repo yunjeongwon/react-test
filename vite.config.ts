@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+console.log('Loaded ENV:', process.env.VITE_PORT);
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -11,6 +13,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: process.env.PORT ? +process.env.PORT : 5173,
+    port: Number(process.env.VITE_PORT) || 5173
   }
 })
