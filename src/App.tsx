@@ -9,6 +9,7 @@ interface IFile {
 }
 
 function App() {
+  const apiUrl = import.meta.env.API_URL ?? 'http://localhost:3000'
   const [images, setImages] = useState<IFile[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<{ name: string; url?: string; text?: string }[]>([]);
@@ -47,7 +48,7 @@ function App() {
       formData.append("files", file); // Nest multer field name
     });
 
-    const res = await fetch("http://localhost:3000/files", {
+    const res = await fetch(`${apiUrl}/files`, {
       method: "POST",
       body: formData,
     });
@@ -59,7 +60,7 @@ function App() {
 
   const getAllImages = async () => {
     try {
-      const res = await fetch("http://localhost:3000/files", {
+      const res = await fetch(`${apiUrl}/files`, {
         method: "GET",
       });
 
